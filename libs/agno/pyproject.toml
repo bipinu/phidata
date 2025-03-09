@@ -1,6 +1,6 @@
 [project]
 name = "agno"
-version = "1.1.6"
+version = "1.1.9"
 description = "Agno: a lightweight framework for building multi-modal Agents"
 requires-python = ">=3.7,<4"
 readme = "README.md"
@@ -49,6 +49,7 @@ groq = ["groq"]
 mistral = ["mistralai"]
 openai = ["openai"]
 ollama = ["ollama"]
+ibm = ["ibm-watsonx-ai"]
 
 # Dependencies for Tools
 exa = ["exa_py"]
@@ -65,6 +66,7 @@ todoist = ["todoist-api-python"]
 elevenlabs = ["elevenlabs"]
 fal = ["fal_client"]
 webex = ["webexpythonsdk"]
+mcp = ["mcp"]
 
 # Dependencies for Storage
 sql = ["sqlalchemy"]
@@ -80,7 +82,7 @@ mongodb = ["pymongo[srv]"]
 singlestore = ["sqlalchemy"]
 
 # Dependencies for Knowledge
-pdf = ["pypdf"]
+pdf = ["pypdf", "rapidocr_onnxruntime"]
 docx = ["python-docx"]
 
 # Dependencies for Performance
@@ -109,7 +111,6 @@ models = [
 # All tools
 tools = [
   "agno[exa]",
-  "agno[yfinance]",
   "agno[ddg]",
   "agno[duckdb]",
   "agno[newspaper]",
@@ -122,6 +123,7 @@ tools = [
   "agno[elevenlabs]",
   "agno[fal]",
   "agno[webex]",
+  "agno[mcp]",
 ]
 
 # All storage
@@ -157,7 +159,8 @@ tests = [
     "agno[knowledge]",
     "agno[performance]",
     "agno[cookbooks]",
-    "twine", "build"
+    "twine",
+    "build",
 ]
 
 [project.scripts]
@@ -233,6 +236,7 @@ module = [
   "googlesearch.*",
   "groq.*",
   "huggingface_hub.*",
+  "ibm_watsonx_ai.*",
   "imghdr.*",
   "jira.*",
   "kubernetes.*",
@@ -241,6 +245,7 @@ module = [
   "langchain.*",
   "llama_index.*",
   "mem0.*",
+  "mcp.*",
   "memory_profiler.*",
   "mistralai.*",
   "mlx_whisper.*",
